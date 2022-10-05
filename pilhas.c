@@ -32,7 +32,7 @@ void imprime(){ /* para a recursão precisa de um parâmetro Pessoa (exemplo: Pr
 // }
 	Prato *aux = pilha;
 	while(aux != NULL){
-		printf("Senha da Pessoa: %c\n",aux->cor);
+		printf("Cor do prato: %c\n",aux->cor);
 		aux = aux->prox;
 	}
 }
