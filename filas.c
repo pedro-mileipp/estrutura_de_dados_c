@@ -33,6 +33,21 @@ void removeFirst(){
 	}
 }
 
+void alteraTop(int novo){
+	if(fila==NULL){
+		printf("Fila vazia!");
+	}else{
+		Pessoa *filaAux = fila;
+		while(filaAux->prox!=NULL){
+			filaAux = filaAux->prox;
+		}
+		filaAux->senha = novo;
+	}
+}
+void alteraIni(int novo){
+	fila->senha = novo;
+}
+
 void imprime(){ /* para a recursão precisa de um parâmetro Pessoa (exemplo: Pessoa *f) */
 //  MÉTODO COM RECURSÃO
 // 	if(f!=NULL){
@@ -51,18 +66,19 @@ int main(void) {
 	add(8);
 	add(10);
 	add(22);
-	removeFirst();
+	alteraTop(3000);
+	alteraIni(8000);
 	imprime();
 
 	printf("\n");
-
-	removeFirst();
-	imprime();
-	printf("\n");
-
 	add(15);
-	add(16);
-	removeFirst();
+	// removeFirst();
 	imprime();
+	printf("\n");
+
+	alteraIni(5000);
+	alteraTop(10000);
+	imprime();
+
     return 0;
 }
