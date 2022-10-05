@@ -9,6 +9,16 @@ struct ponto
 }; typedef struct ponto Ponto;
 
 Ponto *listaPontos; // ponteiro para a primeira estrutura
+int calcula_tamanho(){
+	Ponto *aux = listaPontos;
+	int tam = 0;
+	while (aux != NULL)
+	{
+		tam++;
+		aux = aux->prox;
+	}
+	return tam;
+}
 void addFirst(float x, float y){ // inserção no início.
 	Ponto* p = (Ponto*) malloc(sizeof(Ponto));
 	p->x = x;
@@ -33,6 +43,7 @@ void addLast(float x, float y){
 		// o laço while vai percorrer até o último, quando chegar no último (listaAux->prox == NULL), fazemos listaAux->prox apontar para p.
 	}
 }
+
 
 void addIndex(float x, float y, int index){
 	Ponto *p = (Ponto*) malloc(sizeof(Ponto));
@@ -75,16 +86,15 @@ void removeIndex(int index){
 	}
 }
 
-int calcula_tamanho(){
-	Ponto *aux = listaPontos;
-	int tam = 0;
-	while (aux != NULL)
-	{
-		tam++;
-		aux = aux->prox;
-	}
-	return tam;
+void retira(){
+    if(listaPontos == NULL){
+        printf("Lista vazia.");
+        exit(1);
+    }else{
+        listaPontos = listaPontos->prox;
+    }
 }
+
 
 
 
@@ -103,8 +113,8 @@ int main() {
 	addFirst(3,3);
 	addFirst(4,4);
 	addFirst(5,5);
-	addIndex(6, 6, 2);	
-	removeIndex(1);
+	retira();
+
 	imprime();
 	// ordem: 5 4 6 3 2 1
 	int tam = calcula_tamanho();
